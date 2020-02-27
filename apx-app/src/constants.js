@@ -105,4 +105,10 @@ const jsonRes = [
   }
 ];
 
-export default jsonRes;
+const bmiRanges = ["<20", "20-25", "25-30", "30-35", ">35"];
+const a1cRanges = ["<4", "4-7", "7-10", ">10"];
+const dbpRanges = ["<80", "80-90", "90-105", "105-120", ">120"];
+const genderOptions = ["male", "female"];
+const ageRanges = ["<55", "55-60", "60-65", "65-70", "70-75", ">75"];
+
+export { jsonRes, bmiRanges, a1cRanges, dbpRanges, genderOptions, ageRanges };

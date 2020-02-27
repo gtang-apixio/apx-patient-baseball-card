@@ -1,0 +1,11 @@
+.filter-choice {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.1em;
+}
+
+.checkbox-name {
+  position: relative;
+  margin-left: 0.5em;
+  bottom: 0.1em;
+}
