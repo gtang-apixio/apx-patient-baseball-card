@@ -1,6 +1,8 @@
 import React from "react";
 import FilterColumn from "../FilterColumn/FilterColumn";
+import TableHead from "../TableHead/TableHead";
 import TableRow from "../TableRow/TableRow";
+import jsonRes from "../../constants";
 import "./Body.css";
 
 class Body extends React.Component {
@@ -10,19 +12,25 @@ class Body extends React.Component {
         <div className="filter-container">
           <FilterColumn columnTitle="BMI" />
           <FilterColumn columnTitle="A1C" />
-          <FilterColumn columnTitle="SBP/DBP" />
+          <FilterColumn columnTitle="DBP" />
           <FilterColumn columnTitle="Gender" />
           <FilterColumn columnTitle="Age" />
         </div>
         <div className="table-container">
-          <TableRow
-            pID="14367"
-            bmi="24.3"
-            a1c="6.4"
-            bp="120/80"
-            gender="male"
-            age="73"
-          />
+          <TableHead />
+          <div className="patients-container">
+            {jsonRes.map((patient, i) => (
+              <TableRow
+                pID={patient.pID}
+                bmi={patient.bmi}
+                a1c={patient.a1c}
+                dbp={patient.dbp}
+                gender={patient.gender}
+                age={patient.age}
+                key={i}
+              />
+            ))}
+          </div>
         </div>
       </div>
     );

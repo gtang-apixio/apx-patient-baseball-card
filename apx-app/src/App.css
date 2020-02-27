@@ -1,1 +1,21 @@
+.row-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
+}
 
+.patient-row:hover {
+  background: rgb(142, 207, 207);
+  cursor: pointer;
+}
+
+.row {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
