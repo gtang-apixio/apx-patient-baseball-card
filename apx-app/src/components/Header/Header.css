@@ -1,0 +1,12 @@
+.head-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1em;
+  background: #f4f4f4;
+  height: 6vh;
+}
+
+.logo {
+  width: 100px;
+}
