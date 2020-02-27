@@ -15,18 +15,74 @@ import "./Body.css";
 class Body extends React.Component {
   state = {
     patients: jsonRes,
-    view: "table"
+    view: "table",
+    bmiUnder20: false,
+    bmi20_25: false,
+    bmi25_30: false,
+    bmi30_35: false,
+    bmiAbove35: false,
+    a1cUnder4: false,
+    a1c4_7: false,
+    a1c7_10: false,
+    a1cAbove10: false,
+    dbpUnder80: false,
+    dbp80_100: false,
+    dbp100_120: false,
+    dbpAbove120: false,
+    male: false,
+    female: false,
+    ageUnder55: false,
+    age55_60: false,
+    age60_65: false,
+    age65_70: false,
+    age70_75: false,
+    ageAbove75: false
+  };
+
+  handleCheckbox = event => {
+    const name = event.target.name;
+    console.log(name);
+    // TODO: set state dynamically based off of string name of the input box
+    this.setState({ [name]: !this.state.name });
   };
 
   render() {
+    console.log(this.state.bmiUnder20);
+    console.log(this.state.bmi20_25);
+    console.log(this.state.bmi25_30);
     return (
       <div className="body-container">
         <div className="filter-container">
-          <FilterColumn columnTitle="BMI" filterOptions={bmiRanges} />
-          <FilterColumn columnTitle="A1C" filterOptions={a1cRanges} />
-          <FilterColumn columnTitle="DBP" filterOptions={dbpRanges} />
-          <FilterColumn columnTitle="Gender" filterOptions={genderOptions} />
-          <FilterColumn columnTitle="Age" filterOptions={ageRanges} />
+          <FilterColumn
+            columnTitle="BMI"
+            filterOptions={bmiRanges}
+            handleCheckbox={this.handleCheckbox}
+            checked={this.state.checked}
+          />
+          <FilterColumn
+            columnTitle="A1C"
+            filterOptions={a1cRanges}
+            handleCheckbox={this.handleCheckbox}
+            checked={this.state.checked}
+          />
+          <FilterColumn
+            columnTitle="DBP"
+            filterOptions={dbpRanges}
+            handleCheckbox={this.handleCheckbox}
+            checked={this.state.checked}
+          />
+          <FilterColumn
+            columnTitle="Gender"
+            filterOptions={genderOptions}
+            handleCheckbox={this.handleCheckbox}
+            checked={this.state.checked}
+          />
+          <FilterColumn
+            columnTitle="Age"
+            filterOptions={ageRanges}
+            handleCheckbox={this.handleCheckbox}
+            checked={this.state.checked}
+          />
         </div>
         <div className="table-container">
           <TableHead />

@@ -105,10 +105,36 @@ const jsonRes = [
   }
 ];
 
-const bmiRanges = ["<20", "20-25", "25-30", "30-35", ">35"];
-const a1cRanges = ["<4", "4-7", "7-10", ">10"];
-const dbpRanges = ["<80", "80-90", "90-105", "105-120", ">120"];
-const genderOptions = ["male", "female"];
-const ageRanges = ["<55", "55-60", "60-65", "65-70", "70-75", ">75"];
+const bmiRanges = [
+  { name: "bmiUnder20", option: "<20" },
+  { name: "bmi20_25", option: "20-25" },
+  { name: "bmi25_30", option: "25-30" },
+  { name: "bmi30_35", option: "30-35" },
+  { name: "bmiAbove35", option: ">35" }
+];
+const a1cRanges = [
+  { name: "a1cUnder4", option: "<4" },
+  { name: "a1c4_7", option: "4-7" },
+  { name: "a1c7_10", option: "7-10" },
+  { name: "a1cAbove10", option: ">10" }
+];
+const dbpRanges = [
+  { name: "bmiUnder80", option: "<80" },
+  { name: "a1c80_100", option: "80-100" },
+  { name: "a1c100-120", option: "100-120" },
+  { name: "a1cAbove120", option: ">120" }
+];
+const genderOptions = [
+  { name: "male", option: "male" },
+  { name: "female", option: "female" }
+];
+const ageRanges = [
+  { name: "a1cUnder55", option: "<55" },
+  { name: "a1c55_60", option: "55-60" },
+  { name: "a1c60_65", option: "60-65" },
+  { name: "a1c65_70", option: "65-70" },
+  { name: "a1c70_75", option: "70-75" },
+  { name: "a1cAbove75", option: ">75" }
+];
 
 export { jsonRes, bmiRanges, a1cRanges, dbpRanges, genderOptions, ageRanges };

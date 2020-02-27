@@ -7,10 +7,10 @@ function Checkbox(props) {
       <input
         name={props.name}
         type="checkbox"
-        //   checked={this.state.isGoing}
-        /*  onChange={this.handleInputChange} */
+        onChange={props.handleCheckbox}
+        checked={props.checked}
       />
-      <div className="checkbox-name">{props.name}</div>
+      <div className="checkbox-name">{props.label}</div>
     </div>
   );
 }
