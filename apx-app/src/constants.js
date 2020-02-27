@@ -119,22 +119,22 @@ const a1cRanges = [
   { name: "a1cAbove10", option: ">10" }
 ];
 const dbpRanges = [
-  { name: "bmiUnder80", option: "<80" },
-  { name: "a1c80_100", option: "80-100" },
-  { name: "a1c100-120", option: "100-120" },
-  { name: "a1cAbove120", option: ">120" }
+  { name: "dbpUnder80", option: "<80" },
+  { name: "dbp80_100", option: "80-100" },
+  { name: "dbp100_120", option: "100-120" },
+  { name: "dbpAbove120", option: ">120" }
 ];
 const genderOptions = [
   { name: "male", option: "male" },
   { name: "female", option: "female" }
 ];
 const ageRanges = [
-  { name: "a1cUnder55", option: "<55" },
-  { name: "a1c55_60", option: "55-60" },
-  { name: "a1c60_65", option: "60-65" },
-  { name: "a1c65_70", option: "65-70" },
-  { name: "a1c70_75", option: "70-75" },
-  { name: "a1cAbove75", option: ">75" }
+  { name: "ageUnder55", option: "<55" },
+  { name: "age55_60", option: "55-60" },
+  { name: "age60_65", option: "60-65" },
+  { name: "age65_70", option: "65-70" },
+  { name: "age70_75", option: "70-75" },
+  { name: "ageAbove75", option: ">75" }
 ];
 
 export { jsonRes, bmiRanges, a1cRanges, dbpRanges, genderOptions, ageRanges };
