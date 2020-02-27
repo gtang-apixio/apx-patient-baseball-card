@@ -255,14 +255,49 @@ class Body extends React.Component {
     }
   };
 
-  handleSearch = () => {};
+  generateMinMax = arr => {
+    let minMaxArray = [];
+    if (arr.length === 1) {
+      if (arr[0] === 20) {
+        minMaxArray.push(0, 20);
+      } else if (arr[0] === 30) {
+        minMaxArray.push(30, 100);
+      } else if (arr[0] === 4) {
+        minMaxArray.push(0, 4);
+      } else if (arr[0] === 10) {
+        minMaxArray.push(10, 100);
+      } else if (arr[0] === 80) {
+        minMaxArray.push(0, 80);
+      } else if (arr[0] === 120) {
+        minMaxArray.push(120, 200);
+      } else if (arr[0] === 55) {
+        minMaxArray.push(0, 55);
+      } else if (arr[0] === 75) {
+        minMaxArray.push(75, 100);
+      }
+    } else {
+      minMaxArray.push(Math.min(...arr));
+      minMaxArray.push(Math.max(...arr));
+    }
+    return minMaxArray;
+  };
+
+  handleSearch = () => {
+    let newJSONResponse = [];
+    let bmiMinMax = this.generateMinMax(this.state.bmiRange);
+    let a1cMinMax = this.generateMinMax(this.state.a1cRange);
+    let dbpMinMax = this.generateMinMax(this.state.dbpRange);
+    let ageMinMax = this.generateMinMax(this.state.ageRange);
+
+    // Here we must sort our JSON Response Object by our filter ranges
+  };
 
   render() {
-    console.log(this.state.bmiRange);
-    console.log(this.state.a1cRange);
-    console.log(this.state.dbpRange);
-    console.log(this.state.genderOptions);
-    console.log(this.state.ageRange);
+    // console.log(this.state.bmiRange);
+    // console.log(this.state.a1cRange);
+    // console.log(this.state.dbpRange);
+    // console.log(this.state.genderOptions);
+    // console.log(this.state.ageRange);
     return (
       <div className="body-container">
         <div className="filter-and-search-btn">
