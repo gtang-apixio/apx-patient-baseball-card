@@ -48,18 +48,28 @@ class Body extends React.Component {
   handleCheckbox = event => {
     const name = event.target.name;
     console.log(name);
-    // TODO: set state dynamically based off of string name of the input box
-    this.setState({ [name]: !this.state.name });
+    this.setState({ [name]: !this.state[name] });
   };
 
-  handleSelectPatient = patientID => {
-    console.log(patientID);
+  handleSelectPatient = (
+    patientID,
+    patientBMI,
+    patientA1c,
+    patientDbp,
+    patientGender,
+    patientAge
+  ) => {
+    console.log(
+      patientID,
+      patientBMI,
+      patientA1c,
+      patientDbp,
+      patientGender,
+      patientAge
+    );
   };
 
   render() {
-    // console.log(this.state.bmiUnder20);
-    // console.log(this.state.bmi20_25);
-    // console.log(this.state.bmi25_30);
     return (
       <div className="body-container">
         <div className="filter-and-search-btn">

@@ -4,7 +4,16 @@ import "./TableRow.css";
 function TableRow(props) {
   return (
     <div
-      onClick={() => props.handleSelectPatient(props.pID)}
+      onClick={() =>
+        props.handleSelectPatient(
+          props.pID,
+          props.bmi,
+          props.a1c,
+          props.dbp,
+          props.gender,
+          props.age
+        )
+      }
       className="row-container patient-row"
     >
       <div className="row patient-id">{props.pID}</div>
