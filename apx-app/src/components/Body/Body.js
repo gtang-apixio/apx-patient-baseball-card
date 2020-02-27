@@ -36,7 +36,13 @@ class Body extends React.Component {
     age60_65: false,
     age65_70: false,
     age70_75: false,
-    ageAbove75: false
+    ageAbove75: false,
+    pID: null,
+    bmi: null,
+    a1c: null,
+    dbp: null,
+    gender: null,
+    age: null
   };
 
   handleCheckbox = event => {
@@ -46,10 +52,14 @@ class Body extends React.Component {
     this.setState({ [name]: !this.state.name });
   };
 
+  handleSelectPatient = patientID => {
+    console.log(patientID);
+  };
+
   render() {
-    console.log(this.state.bmiUnder20);
-    console.log(this.state.bmi20_25);
-    console.log(this.state.bmi25_30);
+    // console.log(this.state.bmiUnder20);
+    // console.log(this.state.bmi20_25);
+    // console.log(this.state.bmi25_30);
     return (
       <div className="body-container">
         <div className="filter-and-search-btn">
@@ -99,6 +109,7 @@ class Body extends React.Component {
                 gender={patient.gender}
                 age={patient.age}
                 key={i}
+                handleSelectPatient={this.handleSelectPatient}
               />
             ))}
           </div>
