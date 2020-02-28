@@ -8,6 +8,7 @@
   border-right: 1px solid rgba(224, 224, 224, 1);
   font-family: "Roboto Light";
   position: relative;
+  padding: 1.8px 0;
 }
 
 .patient-id,
