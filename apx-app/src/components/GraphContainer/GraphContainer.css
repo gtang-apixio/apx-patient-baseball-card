@@ -1,0 +1,27 @@
+.graph-wrap {
+  text-align: center;
+}
+
+.back-btn {
+  width: 100px;
+  height: 30px;
+  margin-top: 2em;
+  font-weight: bolder;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8em;
+  outline: none;
+}
+
+.back-btn:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.graph-row {
+  margin-top: 4em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import FilterColumn from "../FilterColumn/FilterColumn";
 import TableContainer from "../TableContainer/TableContainer";
+import GraphContainer from "../GraphContainer/GraphContainer";
 import {
   bmiRanges,
   a1cRanges,
@@ -81,7 +82,7 @@ class Body extends React.Component {
         currentGender: patientGender,
         currentAge: patientAge
       },
-      this.toggleView()
+      this.changeViewState()
     );
   };
 
@@ -300,7 +301,7 @@ class Body extends React.Component {
     // Here we must sort our JSON Response Object by our filter ranges
   };
 
-  toggleView = () => {
+  changeViewState = () => {
     if (this.state.view === "table") {
       this.setState({ view: "graph" });
     } else {
@@ -308,11 +309,35 @@ class Body extends React.Component {
     }
   };
 
+  toggleView = () => {
+    if (this.state.view === "table") {
+      return (
+        <TableContainer
+          data={this.state.data}
+          handleSelectPatient={this.handleSelectPatient}
+        />
+      );
+    } else {
+      return (
+        <GraphContainer
+          pID={this.state.currentPatient}
+          bmi={this.state.currentBMI}
+          a1c={this.state.currentA1C}
+          dbp={this.state.currentDBP}
+          gender={this.state.currentGender}
+          age={this.state.currentAge}
+          changeViewState={this.changeViewState}
+        />
+      );
+    }
+  };
+
   render() {
-    console.log(
-      `${this.state.currentPatient}, ${this.state.currentBMI}, ${this.state.currentA1C}, ${this.state.currentDBP}, ${this.state.currentGender}, ${this.state.currentAge}`
-    );
-    console.log(this.state.view);
+    // console.log(
+    //   `${this.state.currentPatient}, ${this.state.currentBMI}, ${this.state.currentA1C}, ${this.state.currentDBP}, ${this.state.currentGender}, ${this.state.currentAge}`
+    // );
+    // console.log(this.state.view);
+    console.log(this.state.data);
     return (
       <div className="body-container">
         <div className="filter-and-search-btn">
@@ -352,10 +377,13 @@ class Body extends React.Component {
             Search
           </button>
         </div>
-        <TableContainer
+        <div className="body-wrap">
+          {/* <TableContainer
           data={this.state.data}
           handleSelectPatient={this.handleSelectPatient}
-        />
+        /> */}
+          {this.toggleView()}
+        </div>
       </div>
     );
   }
