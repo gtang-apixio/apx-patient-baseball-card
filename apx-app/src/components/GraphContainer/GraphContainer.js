@@ -10,9 +10,9 @@ function GraphContainer(props) {
         Back to Table
       </button>
       <div className="graph-row">
-        <Graph />
-        <Graph />
-        <Graph />
+        <Graph data={props.graphBMI} dates={props.graphBMI_dates} name="BMI" />
+        <Graph data={props.graphA1C} dates={props.graphA1C_dates} name="A1c" />
+        <Graph data={props.graphDBP} dates={props.graphDBP_dates} name="DBP" />
       </div>
     </div>
   );

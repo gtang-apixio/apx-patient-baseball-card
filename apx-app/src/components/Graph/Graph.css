@@ -1,0 +1,10 @@
+.line-graph {
+  width: 100%;
+}
+
+.na-text {
+  font-size: 24px;
+  font-weight: 400;
+  white-space: nowrap;
+  color: #6d6e71;
+}

@@ -3,12 +3,12 @@
   flex-direction: row;
   align-items: center;
   padding: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
   justify-content: space-between;
 }
 
 .patient-row:hover {
-  background: rgb(142, 207, 207);
+  background: rgba(0, 108, 180, 0.05);
   cursor: pointer;
 }
 

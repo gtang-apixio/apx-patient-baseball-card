@@ -11,7 +11,13 @@ function TableRow(props) {
           props.a1c,
           props.dbp,
           props.gender,
-          props.age
+          props.age,
+          props.graph_bmi,
+          props.graph_bmi_dates,
+          props.graph_a1c,
+          props.graph_a1c_dates,
+          props.graph_dbp,
+          props.graph_dbp_dates
         )
       }
       className="row-container patient-row"

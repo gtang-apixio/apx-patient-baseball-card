@@ -15,14 +15,44 @@ function TableContainer(props) {
                 ? patient.measures.BMI[0].factValue
                 : "N/A"
             }
+            graph_bmi={
+              patient.measures.BMI.length > 0
+                ? patient.measures.BMI.map(val => val.factValue)
+                : "N/A"
+            }
+            graph_bmi_dates={
+              patient.measures.BMI.length > 0
+                ? patient.measures.BMI.map(val => val.factDate)
+                : "N/A"
+            }
             a1c={
               patient.measures.A1C.length > 0
                 ? patient.measures.A1C[0].factValue
                 : "N/A"
             }
+            graph_a1c={
+              patient.measures.A1C.length > 0
+                ? patient.measures.A1C.map(val => val.factValue)
+                : "N/A"
+            }
+            graph_a1c_dates={
+              patient.measures.A1C.length > 0
+                ? patient.measures.A1C.map(val => val.factDate)
+                : "N/A"
+            }
             dbp={
               patient.measures.DBP.length > 0
                 ? patient.measures.DBP[0].factValue
+                : "N/A"
+            }
+            graph_dbp={
+              patient.measures.DBP.length > 0
+                ? patient.measures.DBP.map(val => val.factValue)
+                : "N/A"
+            }
+            graph_dbp_dates={
+              patient.measures.DBP.length > 0
+                ? patient.measures.DBP.map(val => val.factDate)
                 : "N/A"
             }
             gender={patient.gender}

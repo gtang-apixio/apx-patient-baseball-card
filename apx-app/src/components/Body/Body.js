@@ -53,7 +53,13 @@ class Body extends React.Component {
     a1cRange: [],
     dbpRange: [],
     genderOptions: [],
-    ageRange: []
+    ageRange: [],
+    graphBMI: null,
+    graphBMI_dates: null,
+    graphA1C: null,
+    graphA1C_dates: null,
+    graphDBP: null,
+    graphDBP_dates: null
   };
 
   componentDidMount() {}
@@ -71,7 +77,13 @@ class Body extends React.Component {
     patientA1c,
     patientDbp,
     patientGender,
-    patientAge
+    patientAge,
+    graphBMI,
+    graphBMI_dates,
+    graphA1C,
+    graphA1C_dates,
+    graphDBP,
+    graphDBP_dates
   ) => {
     this.setState(
       {
@@ -80,7 +92,13 @@ class Body extends React.Component {
         currentA1C: patientA1c,
         currentDBP: patientDbp,
         currentGender: patientGender,
-        currentAge: patientAge
+        currentAge: patientAge,
+        graphBMI: graphBMI,
+        graphA1C: graphA1C,
+        graphDBP: graphDBP,
+        graphBMI_dates: graphBMI_dates,
+        graphA1C_dates: graphA1C_dates,
+        graphDBP_dates: graphDBP_dates
       },
       this.changeViewState()
     );
@@ -327,6 +345,12 @@ class Body extends React.Component {
           gender={this.state.currentGender}
           age={this.state.currentAge}
           changeViewState={this.changeViewState}
+          graphBMI={this.state.graphBMI}
+          graphBMI_dates={this.state.graphBMI_dates}
+          graphA1C={this.state.graphA1C}
+          graphA1C_dates={this.state.graphA1C_dates}
+          graphDBP={this.state.graphDBP}
+          graphDBP_dates={this.state.graphDBP_dates}
         />
       );
     }
@@ -338,6 +362,7 @@ class Body extends React.Component {
     // );
     // console.log(this.state.view);
     console.log(this.state.data);
+    console.log(this.state.graphBMI, this.state.graphA1C, this.state.graphDBP);
     return (
       <div className="body-container">
         <div className="filter-and-search-btn">
@@ -377,13 +402,7 @@ class Body extends React.Component {
             Search
           </button>
         </div>
-        <div className="body-wrap">
-          {/* <TableContainer
-          data={this.state.data}
-          handleSelectPatient={this.handleSelectPatient}
-        /> */}
-          {this.toggleView()}
-        </div>
+        <div className="body-wrap">{this.toggleView()}</div>
       </div>
     );
   }

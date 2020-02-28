@@ -4,7 +4,7 @@
 
 .body-wrap {
   height: 70vh;
-  background: paleturquoise;
+  background: rgba(255, 255, 255, 1);
   overflow: scroll;
 }
 
@@ -12,8 +12,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: palevioletred;
-  border-bottom: 1px solid black;
+  background: #f7f7f7;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
   position: relative;
 }
 
@@ -36,9 +36,11 @@
   border-radius: 5px;
   font-size: 0.8em;
   outline: none;
+  background: #0053a6;
+  color: #f7f7f7;
 }
 
 .search-btn:hover {
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 0.8;
 }
