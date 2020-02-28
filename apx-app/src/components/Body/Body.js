@@ -271,42 +271,79 @@ class Body extends React.Component {
     }
   };
 
-  generateMinMax = arr => {
-    // array of arrays with each index being an array with the range
-    let minMaxArray = [];
-    if (arr.length === 1) {
-      if (arr[0] === 20) {
-        minMaxArray.push(0, 20);
-      } else if (arr[0] === 30) {
-        minMaxArray.push(30, 100);
-      } else if (arr[0] === 4) {
-        minMaxArray.push(0, 4);
-      } else if (arr[0] === 10) {
-        minMaxArray.push(10, 100);
-      } else if (arr[0] === 80) {
-        minMaxArray.push(0, 80);
-      } else if (arr[0] === 120) {
-        minMaxArray.push(120, 200);
-      } else if (arr[0] === 55) {
-        minMaxArray.push(0, 55);
-      } else if (arr[0] === 75) {
-        minMaxArray.push(75, 100);
+  handleSearch = () => {
+    let firstFilter = []; // bmi filter
+    let secondFilter = []; // dbp filter
+    let thirdFilter = []; // a1c filter
+    let data = [...this.state.data];
+    let bmiRange = [...this.state.bmiRange];
+    let dbpRange = [...this.state.dbpRange];
+    let a1cRange = [...this.state.a1cRange];
+
+    // bmi 1st
+    if (bmiRange.length > 0) {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].measures.BMI.length > 0) {
+          for (let j = 0; j < bmiRange.length; j++) {
+            if (
+              data[i].measures.BMI[0].factValue >
+                parseInt(bmiRange[j].split("-")[0]) &&
+              data[i].measures.BMI[0].factValue <
+                parseInt(bmiRange[j].split("-")[1])
+            ) {
+              firstFilter.push(data[i]);
+            }
+          }
+        }
       }
     } else {
-      minMaxArray.push(Math.min(...arr));
-      minMaxArray.push(Math.max(...arr));
+      firstFilter = data;
     }
-    return minMaxArray;
-  };
+    console.log(firstFilter);
 
-  handleSearch = () => {
-    let newJSONResponse = [];
-    let bmiMinMax = this.generateMinMax(this.state.bmiRange);
-    let a1cMinMax = this.generateMinMax(this.state.a1cRange);
-    let dbpMinMax = this.generateMinMax(this.state.dbpRange);
-    let ageMinMax = this.generateMinMax(this.state.ageRange);
+    // dbc 2nd
+    if (dbpRange.length > 0) {
+      for (let x = 0; x < firstFilter.length; x++) {
+        if (firstFilter[x].measures.DBP.length > 0) {
+          for (let y = 0; y < dbpRange.length; y++) {
+            if (
+              firstFilter[x].measures.DBP[0].factValue >
+                parseInt(dbpRange[y].split("-")[0]) &&
+              firstFilter[x].measures.DBP[0].factValue <
+                parseInt(dbpRange[y].split("-")[1])
+            ) {
+              secondFilter.push(firstFilter[x]);
+            }
+          }
+        }
+      }
+    } else {
+      secondFilter = firstFilter;
+    }
+    console.log(secondFilter);
 
-    // Here we must sort our JSON Response Object by our filter ranges
+    // a1c 3rd
+    if (a1cRange.length > 0) {
+      console.log(a1cRange.length);
+      for (let k = 0; k < secondFilter.length; k++) {
+        console.log(secondFilter[k]);
+        if (secondFilter[k].measures.A1C.length > 0) {
+          for (let z = 0; z < a1cRange.length; z++) {
+            if (
+              secondFilter[k].measures.A1C[0].factValue >
+                parseInt(a1cRange[z].split("-")[0]) &&
+              secondFilter[k].measures.A1C[0].factValue <
+                parseInt(a1cRange[z].split("-")[1])
+            ) {
+              secondFilter.push(secondFilter[k]);
+            }
+          }
+        }
+      }
+    } else {
+      thirdFilter = secondFilter;
+    }
+    console.log(thirdFilter);
   };
 
   changeViewState = () => {
@@ -352,11 +389,11 @@ class Body extends React.Component {
     // );
     // console.log(this.state.view);
     console.log(this.state.bmiRange);
-    console.log(this.state.a1cRange);
-    console.log(this.state.dbpRange);
-    console.log(this.state.genderOptions);
-    console.log(this.state.ageRange);
-    // console.log(this.state.data);
+    // console.log(this.state.a1cRange);
+    // console.log(this.state.dbpRange);
+    // console.log(this.state.genderOptions);
+    // console.log(this.state.ageRange);
+    console.log(this.state.data);
     // console.log(this.state.graphBMI, this.state.graphA1C, this.state.graphDBP);
     return (
       <div className="body-container">
