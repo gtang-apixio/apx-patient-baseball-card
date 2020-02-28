@@ -62,8 +62,6 @@ class Body extends React.Component {
     graphDBP_dates: null
   };
 
-  componentDidMount() {}
-
   handleCheckbox = event => {
     const name = event.target.name;
     this.handleRange(name);
@@ -157,10 +155,10 @@ class Body extends React.Component {
 
     // gender
     if (name === "male") {
-      genderOption.push("male");
+      genderOption.push("MALE");
       this.setState({ genderOptions: genderOption });
     } else if (name === "female") {
-      genderOption.push("female");
+      genderOption.push("FEMALE");
       this.setState({ genderOptions: genderOption });
     }
 
@@ -236,10 +234,10 @@ class Body extends React.Component {
 
     // gender
     if (name === "male") {
-      genderOption.splice(genderOption.indexOf("male"), 1);
+      genderOption.splice(genderOption.indexOf("MALE"), 1);
       this.setState({ genderOptions: genderOption });
     } else if (name === "female") {
-      genderOption.splice(genderOption.indexOf("female"), 1);
+      genderOption.splice(genderOption.indexOf("FEMALE"), 1);
       this.setState({ genderOptions: genderOption });
     }
 
@@ -275,10 +273,14 @@ class Body extends React.Component {
     let firstFilter = []; // bmi filter
     let secondFilter = []; // dbp filter
     let thirdFilter = []; // a1c filter
+    let fourthFilter = []; // age filter
+    let fifthFilter = []; // gender filter
     let data = [...this.state.data];
     let bmiRange = [...this.state.bmiRange];
     let dbpRange = [...this.state.dbpRange];
     let a1cRange = [...this.state.a1cRange];
+    let ageRange = [...this.state.ageRange];
+    let genderOption = [...this.state.genderOptions];
 
     // bmi 1st
     if (bmiRange.length > 0) {
@@ -299,7 +301,6 @@ class Body extends React.Component {
     } else {
       firstFilter = data;
     }
-    console.log(firstFilter);
 
     // dbc 2nd
     if (dbpRange.length > 0) {
@@ -320,13 +321,10 @@ class Body extends React.Component {
     } else {
       secondFilter = firstFilter;
     }
-    console.log(secondFilter);
 
     // a1c 3rd
     if (a1cRange.length > 0) {
-      console.log(a1cRange.length);
       for (let k = 0; k < secondFilter.length; k++) {
-        console.log(secondFilter[k]);
         if (secondFilter[k].measures.A1C.length > 0) {
           for (let z = 0; z < a1cRange.length; z++) {
             if (
@@ -335,7 +333,7 @@ class Body extends React.Component {
               secondFilter[k].measures.A1C[0].factValue <
                 parseInt(a1cRange[z].split("-")[1])
             ) {
-              secondFilter.push(secondFilter[k]);
+              thirdFilter.push(secondFilter[k]);
             }
           }
         }
@@ -343,7 +341,37 @@ class Body extends React.Component {
     } else {
       thirdFilter = secondFilter;
     }
-    console.log(thirdFilter);
+
+    // age 4th
+    if (ageRange.length > 0) {
+      for (let n = 0; n < thirdFilter.length; n++) {
+        for (let m = 0; m < ageRange.length; m++) {
+          if (
+            thirdFilter[n].age > parseInt(ageRange[m].split("-")[0]) &&
+            thirdFilter[n].age < parseInt(ageRange[m].split("-")[1])
+          ) {
+            fourthFilter.push(thirdFilter[n]);
+          }
+        }
+      }
+    } else {
+      fourthFilter = thirdFilter;
+    }
+
+    // gender 5th
+    if (genderOption.length > 0) {
+      for (let a = 0; a < fourthFilter.length; a++) {
+        for (let b = 0; b < genderOption.length; b++) {
+          if (fourthFilter[a].gender === genderOption[b]) {
+            fifthFilter.push(fourthFilter[a]);
+          }
+        }
+      }
+    } else {
+      fifthFilter = fourthFilter;
+    }
+
+    // add everything back into fifthFilter so customer can still see all the patients
   };
 
   changeViewState = () => {
@@ -388,7 +416,6 @@ class Body extends React.Component {
     //   `${this.state.currentPatient}, ${this.state.currentBMI}, ${this.state.currentA1C}, ${this.state.currentDBP}, ${this.state.currentGender}, ${this.state.currentAge}`
     // );
     // console.log(this.state.view);
-    console.log(this.state.bmiRange);
     // console.log(this.state.a1cRange);
     // console.log(this.state.dbpRange);
     // console.log(this.state.genderOptions);
