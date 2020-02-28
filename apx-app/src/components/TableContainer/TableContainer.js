@@ -12,7 +12,8 @@ function TableContainer(props) {
             pID={patient.patientId}
             bmi={
               patient.measures.BMI.length > 0
-                ? patient.measures.BMI[0].factValue
+                ? patient.measures.BMI[patient.measures.BMI.length - 1]
+                    .factValue
                 : "N/A"
             }
             graph_bmi={
@@ -27,7 +28,8 @@ function TableContainer(props) {
             }
             a1c={
               patient.measures.A1C.length > 0
-                ? patient.measures.A1C[0].factValue
+                ? patient.measures.A1C[patient.measures.A1C.length - 1]
+                    .factValue
                 : "N/A"
             }
             graph_a1c={
@@ -42,7 +44,8 @@ function TableContainer(props) {
             }
             dbp={
               patient.measures.DBP.length > 0
-                ? patient.measures.DBP[0].factValue
+                ? patient.measures.DBP[patient.measures.DBP.length - 1]
+                    .factValue
                 : "N/A"
             }
             graph_dbp={

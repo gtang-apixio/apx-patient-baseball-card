@@ -408,7 +408,11 @@ class Body extends React.Component {
         }
       }
     }
-    this.setState({ data: fifthFilter });
+    if (this.state.view === "graph") {
+      this.setState({ data: fifthFilter, view: "table" });
+    } else {
+      this.setState({ data: fifthFilter });
+    }
   };
 
   changeViewState = () => {
