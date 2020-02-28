@@ -4,7 +4,7 @@ import "./Header.css";
 function Header() {
   return (
     <div className="head-container">
-      <div className="hcc-text">HCC Identifier</div>
+      <div className="hcc-text">Pop Insights</div>
       <img
         alt="apx-logo"
         className="logo"

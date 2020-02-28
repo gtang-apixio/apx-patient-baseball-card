@@ -3,6 +3,7 @@
   font-size: 1em;
   padding: 1em 0;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2);
+  font-family: "Roboto", Arial !important;
 }
 
 .age,
@@ -10,8 +11,10 @@
   width: 40% !important;
 }
 
-.bmi,
-.a1c,
-.bp {
+.bmi-head,
+.a1c-head,
+.bp-head {
   width: 60% !important;
+  border-right: 1px solid rgba(224, 224, 224, 1);
+  font-family: "Roboto Light";
 }

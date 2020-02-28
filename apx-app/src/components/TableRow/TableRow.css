@@ -1,7 +1,15 @@
+.stat-container {
+  width: 60% !important;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(224, 224, 224, 1);
+  font-family: "Roboto Light";
+}
+
 .patient-id,
-.bmi,
-.a1c,
-.bp,
 .gender {
   border-right: 1px solid rgba(224, 224, 224, 1);
   font-family: "Roboto Light";

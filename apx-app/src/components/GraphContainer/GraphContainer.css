@@ -3,10 +3,35 @@
   width: 100%;
 }
 
+/* .graph-header {
+  font-weight: 600;
+  padding: 0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  background: #e9f1f8;
+  font-family: "Roboto", Arial !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* .patient-id-header,
+.patient-age-header,
+.patient-gender-header {
+  font-size: 1.2em;
+  padding: 1em 2em;
+}
+
+.patient-age-header,
+.patient-gender-header {
+  font-size: 0.8em;
+} */
+
 .back-btn {
   width: 100px;
   height: 30px;
   margin-top: 2em;
+  margin-bottom: 2em;
   font-weight: bolder;
   border: none;
   border-radius: 5px;
@@ -26,5 +51,5 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-top: 2em;
+  margin-top: 1em;
 }

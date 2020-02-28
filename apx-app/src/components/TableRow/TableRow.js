@@ -1,5 +1,6 @@
 import React from "react";
 import "./TableRow.css";
+import PDFLogo from "../PDFLogo/PDFLogo";
 
 function TableRow(props) {
   return (
@@ -23,9 +24,18 @@ function TableRow(props) {
       className="row-container patient-row"
     >
       <div className="row patient-id">{props.pID}</div>
-      <div className="row bmi">{props.bmi}</div>
-      <div className="row a1c">{props.a1c}</div>
-      <div className="row bp">{props.dbp}</div>
+      <div className="stat-container">
+        <div className="row bmi">{props.bmi}</div>
+        <PDFLogo link={props.link_bmi} />
+      </div>
+      <div className="stat-container">
+        <div className="row a1c">{props.a1c}</div>
+        <PDFLogo link={props.link_a1c} />
+      </div>
+      <div className="stat-container">
+        <div className="row bp">{props.dbp}</div>
+        <PDFLogo link={props.link_dbp} />
+      </div>
       <div className="row gender">{props.gender}</div>
       <div className="row age">{props.age}</div>
     </div>

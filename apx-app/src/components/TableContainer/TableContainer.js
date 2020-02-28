@@ -27,6 +27,11 @@ function TableContainer(props) {
                 ? patient.measures.BMI.map(val => val.factDate)
                 : "N/A"
             }
+            link_bmi={
+              patient.measures.BMI.length > 0
+                ? patient.measures.BMI[patient.measures.BMI.length - 1].url
+                : "N/A"
+            }
             a1c={
               patient.measures.A1C.length > 0
                 ? patient.measures.A1C[patient.measures.A1C.length - 1]
@@ -43,6 +48,11 @@ function TableContainer(props) {
                 ? patient.measures.A1C.map(val => val.factDate)
                 : "N/A"
             }
+            link_a1c={
+              patient.measures.A1C.length > 0
+                ? patient.measures.A1C[patient.measures.A1C.length - 1].url
+                : "N/A"
+            }
             dbp={
               patient.measures.DBP.length > 0
                 ? patient.measures.DBP[patient.measures.DBP.length - 1]
@@ -57,6 +67,11 @@ function TableContainer(props) {
             graph_dbp_dates={
               patient.measures.DBP.length > 0
                 ? patient.measures.DBP.map(val => val.factDate)
+                : "N/A"
+            }
+            link_dbp={
+              patient.measures.DBP.length > 0
+                ? patient.measures.DBP[patient.measures.DBP.length - 1].url
                 : "N/A"
             }
             gender={patient.gender}
