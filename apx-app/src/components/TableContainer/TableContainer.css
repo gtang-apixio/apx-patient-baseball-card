@@ -1,0 +1,5 @@
+.table-container {
+  background: paleturquoise;
+  height: 70vh;
+  overflow: scroll;
+}

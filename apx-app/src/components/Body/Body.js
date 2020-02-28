@@ -1,7 +1,6 @@
 import React from "react";
 import FilterColumn from "../FilterColumn/FilterColumn";
-import TableHead from "../TableHead/TableHead";
-import TableRow from "../TableRow/TableRow";
+import TableContainer from "../TableContainer/TableContainer";
 import {
   bmiRanges,
   a1cRanges,
@@ -16,6 +15,12 @@ class Body extends React.Component {
   state = {
     data: data,
     view: "table",
+    currentPatient: null,
+    currentBMI: null,
+    currentA1C: null,
+    currentDBP: null,
+    currentGender: null,
+    currentAge: null,
     bmiUnder20: false,
     bmi20_25: false,
     bmi25_30: false,
@@ -67,13 +72,16 @@ class Body extends React.Component {
     patientGender,
     patientAge
   ) => {
-    console.log(
-      patientID,
-      patientBMI,
-      patientA1c,
-      patientDbp,
-      patientGender,
-      patientAge
+    this.setState(
+      {
+        currentPatient: patientID,
+        currentBMI: patientBMI,
+        currentA1C: patientA1c,
+        currentDBP: patientDbp,
+        currentGender: patientGender,
+        currentAge: patientAge
+      },
+      this.toggleView()
     );
   };
 
@@ -292,8 +300,19 @@ class Body extends React.Component {
     // Here we must sort our JSON Response Object by our filter ranges
   };
 
+  toggleView = () => {
+    if (this.state.view === "table") {
+      this.setState({ view: "graph" });
+    } else {
+      this.setState({ view: "table" });
+    }
+  };
+
   render() {
-    console.log(this.state.data);
+    console.log(
+      `${this.state.currentPatient}, ${this.state.currentBMI}, ${this.state.currentA1C}, ${this.state.currentDBP}, ${this.state.currentGender}, ${this.state.currentAge}`
+    );
+    console.log(this.state.view);
     return (
       <div className="body-container">
         <div className="filter-and-search-btn">
@@ -333,35 +352,10 @@ class Body extends React.Component {
             Search
           </button>
         </div>
-        <div className="table-container">
-          <TableHead />
-          <div className="patients-container">
-            {this.state.data.map((patient, i) => (
-              <TableRow
-                pID={patient.patientId}
-                bmi={
-                  patient.measures.BMI.length > 0
-                    ? patient.measures.BMI[0].factValue
-                    : "N/A"
-                }
-                a1c={
-                  patient.measures.A1C.length > 0
-                    ? patient.measures.A1C[0].factValue
-                    : "N/A"
-                }
-                dbp={
-                  patient.measures.DBP.length > 0
-                    ? patient.measures.DBP[0].factValue
-                    : "N/A"
-                }
-                gender={patient.gender}
-                age={patient.age}
-                key={i}
-                handleSelectPatient={this.handleSelectPatient}
-              />
-            ))}
-          </div>
-        </div>
+        <TableContainer
+          data={this.state.data}
+          handleSelectPatient={this.handleSelectPatient}
+        />
       </div>
     );
   }

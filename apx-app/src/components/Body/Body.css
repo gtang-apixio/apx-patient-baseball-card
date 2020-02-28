@@ -20,11 +20,6 @@
   justify-content: space-between;
 }
 
-.table-container {
-  background: paleturquoise;
-  height: 70vh;
-}
-
 .search-btn {
   position: relative;
   bottom: 2em;
@@ -40,8 +35,4 @@
 .search-btn:hover {
   cursor: pointer;
   opacity: 0.9;
-}
-
-.table-container {
-  overflow: scroll;
 }
