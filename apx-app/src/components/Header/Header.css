@@ -14,10 +14,14 @@
   line-height: normal;
   letter-spacing: 2.2px;
   text-transform: uppercase;
+  padding-left: 3em;
 }
 
-.hcc-text {
-  margin-left: 3em;
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 5em;
 }
 
 .user {
@@ -26,10 +30,18 @@
   font-size: 13px;
   font-weight: 100;
   line-height: 1.23em;
-  margin-right: 3em;
 }
 
 .logo {
   width: 70px;
   height: 27px;
+}
+
+.chevron {
+  width: 20px;
+  height: 20px;
+  margin-top: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 50%;
 }

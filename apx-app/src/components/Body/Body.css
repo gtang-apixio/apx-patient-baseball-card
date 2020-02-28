@@ -3,9 +3,7 @@
 }
 
 .body-wrap {
-  height: 70vh;
   background: rgba(255, 255, 255, 1);
-  overflow: scroll;
 }
 
 .filter-and-search-btn {
