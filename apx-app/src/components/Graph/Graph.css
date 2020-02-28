@@ -8,3 +8,7 @@
   white-space: nowrap;
   color: #6d6e71;
 }
+
+.highcharts-credits {
+  display: none !important;
+}

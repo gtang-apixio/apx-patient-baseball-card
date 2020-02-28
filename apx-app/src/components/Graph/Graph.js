@@ -11,7 +11,10 @@ class Graph extends React.Component {
         backgroundColor: "white"
       },
       title: {
-        text: `${this.props.name} Over Time`
+        text: `${this.props.name} Over Time`,
+        style: {
+          fontSize: "24px"
+        }
       },
       yAxis: {
         title: {
