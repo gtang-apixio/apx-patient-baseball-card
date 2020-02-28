@@ -65,7 +65,7 @@ class Body extends React.Component {
   handleCheckbox = event => {
     const name = event.target.name;
     this.handleRange(name);
-    console.log(name);
+    // console.log(name);
     this.setState({ [name]: !this.state[name] });
   };
 
@@ -370,8 +370,45 @@ class Body extends React.Component {
     } else {
       fifthFilter = fourthFilter;
     }
+    console.log(fifthFilter);
 
     // add everything back into fifthFilter so customer can still see all the patients
+    if (fifthFilter !== fourthFilter) {
+      for (let c = 0; c < fourthFilter.length; c++) {
+        if (!fifthFilter.includes(fourthFilter[c])) {
+          fifthFilter.push(fourthFilter[c]);
+        }
+      }
+    }
+    if (fifthFilter !== thirdFilter) {
+      for (let d = 0; d < thirdFilter.length; d++) {
+        if (!fifthFilter.includes(thirdFilter[d])) {
+          fifthFilter.push(thirdFilter[d]);
+        }
+      }
+    }
+    if (fifthFilter !== secondFilter) {
+      for (let e = 0; e < secondFilter.length; e++) {
+        if (!fifthFilter.includes(secondFilter[e])) {
+          fifthFilter.push(secondFilter[e]);
+        }
+      }
+    }
+    if (fifthFilter !== firstFilter) {
+      for (let f = 0; f < firstFilter.length; f++) {
+        if (!fifthFilter.includes(firstFilter[f])) {
+          fifthFilter.push(firstFilter[f]);
+        }
+      }
+    }
+    if (fifthFilter !== data) {
+      for (let g = 0; g < data.length; g++) {
+        if (!fifthFilter.includes(data[g])) {
+          fifthFilter.push(data[g]);
+        }
+      }
+    }
+    this.setState({ data: fifthFilter });
   };
 
   changeViewState = () => {
