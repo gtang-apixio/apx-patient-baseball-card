@@ -4,3 +4,14 @@
   padding: 1em 0;
   text-decoration: underline;
 }
+
+.age,
+.gender {
+  width: 40% !important;
+}
+
+.bmi,
+.a1c,
+.bp {
+  width: 60% !important;
+}

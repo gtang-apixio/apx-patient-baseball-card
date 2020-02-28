@@ -3,18 +3,18 @@ import FilterColumn from "../FilterColumn/FilterColumn";
 import TableHead from "../TableHead/TableHead";
 import TableRow from "../TableRow/TableRow";
 import {
-  jsonRes,
   bmiRanges,
   a1cRanges,
   dbpRanges,
   genderOptions,
   ageRanges
 } from "../../constants";
+import data from "../../data/data";
 import "./Body.css";
 
 class Body extends React.Component {
   state = {
-    patients: jsonRes,
+    data: data,
     view: "table",
     bmiUnder20: false,
     bmi20_25: false,
@@ -293,11 +293,7 @@ class Body extends React.Component {
   };
 
   render() {
-    // console.log(this.state.bmiRange);
-    // console.log(this.state.a1cRange);
-    // console.log(this.state.dbpRange);
-    // console.log(this.state.genderOptions);
-    // console.log(this.state.ageRange);
+    console.log(this.state.data);
     return (
       <div className="body-container">
         <div className="filter-and-search-btn">
@@ -340,12 +336,24 @@ class Body extends React.Component {
         <div className="table-container">
           <TableHead />
           <div className="patients-container">
-            {this.state.patients.map((patient, i) => (
+            {this.state.data.map((patient, i) => (
               <TableRow
-                pID={patient.pID}
-                bmi={patient.bmi}
-                a1c={patient.a1c}
-                dbp={patient.dbp}
+                pID={patient.patientId}
+                bmi={
+                  patient.measures.BMI.length > 0
+                    ? patient.measures.BMI[0].factValue
+                    : "N/A"
+                }
+                a1c={
+                  patient.measures.A1C.length > 0
+                    ? patient.measures.A1C[0].factValue
+                    : "N/A"
+                }
+                dbp={
+                  patient.measures.DBP.length > 0
+                    ? patient.measures.DBP[0].factValue
+                    : "N/A"
+                }
                 gender={patient.gender}
                 age={patient.age}
                 key={i}
