@@ -7,8 +7,12 @@ class Graph extends React.Component {
   render() {
     const options = {
       chart: {
-        // backgroundColor: "paleturquoise"
         backgroundColor: "white"
+      },
+      plotOptions: {
+        line: {
+          color: "#0053a6"
+        }
       },
       title: {
         text: `${this.props.name} Over Time`,

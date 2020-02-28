@@ -114,15 +114,15 @@ class Body extends React.Component {
     // bmi
     if (name.substring(0, 3) === "bmi") {
       if (name === "bmiUnder20") {
-        bmiRange.push(20);
+        bmiRange.push("0-20");
       } else if (name === "bmi20_25") {
-        bmiRange.push(20, 25);
+        bmiRange.push("20-25");
       } else if (name === "bmi25_30") {
-        bmiRange.push(25, 30);
+        bmiRange.push("25-30");
       } else if (name === "bmi30_35") {
-        bmiRange.push(30, 35);
+        bmiRange.push("30-35");
       } else if (name === "bmiAbove35") {
-        bmiRange.push(35);
+        bmiRange.push("35-100");
       }
       this.setState({ bmiRange: bmiRange });
     }
@@ -130,13 +130,13 @@ class Body extends React.Component {
     // a1c
     if (name.substring(0, 3) === "a1c") {
       if (name === "a1cUnder4") {
-        a1cRange.push(4);
+        a1cRange.push("0-4");
       } else if (name === "a1c4_7") {
-        a1cRange.push(4, 7);
+        a1cRange.push("4-7");
       } else if (name === "a1c7_10") {
-        a1cRange.push(7, 10);
+        a1cRange.push("7-10");
       } else if (name === "a1cAbove10") {
-        a1cRange.push(10);
+        a1cRange.push("10-15");
       }
       this.setState({ a1cRange: a1cRange });
     }
@@ -144,13 +144,13 @@ class Body extends React.Component {
     // dbp
     if (name.substring(0, 3) === "dbp") {
       if (name === "dbpUnder80") {
-        dbpRange.push(80);
+        dbpRange.push("0-80");
       } else if (name === "dbp80_100") {
-        dbpRange.push(80, 100);
+        dbpRange.push("80-100");
       } else if (name === "dbp100_120") {
-        dbpRange.push(100, 120);
+        dbpRange.push("100-120");
       } else if (name === "dbpAbove120") {
-        dbpRange.push(120);
+        dbpRange.push("120-200");
       }
       this.setState({ dbpRange: dbpRange });
     }
@@ -167,17 +167,17 @@ class Body extends React.Component {
     // age
     if (name.substring(0, 3) === "age") {
       if (name === "ageUnder55") {
-        ageRange.push(55);
+        ageRange.push("20-55");
       } else if (name === "age55_60") {
-        ageRange.push(55, 60);
+        ageRange.push("55-60");
       } else if (name === "age60_65") {
-        ageRange.push(60, 65);
+        ageRange.push("60-65");
       } else if (name === "age65_70") {
-        ageRange.push(65, 70);
+        ageRange.push("65-70");
       } else if (name === "age70_75") {
-        ageRange.push(70, 75);
+        ageRange.push("70-75");
       } else if (name === "ageAbove75") {
-        ageRange.push(75);
+        ageRange.push("75-100");
       }
       this.setState({ ageRange: ageRange });
     }
@@ -193,18 +193,15 @@ class Body extends React.Component {
     // bmi
     if (name.substring(0, 3) === "bmi") {
       if (name === "bmiUnder20") {
-        bmiRange.splice(bmiRange.indexOf(20), 1);
+        bmiRange.splice(bmiRange.indexOf("0-20"), 1);
       } else if (name === "bmi20_25") {
-        bmiRange.splice(bmiRange.indexOf(20), 1);
-        bmiRange.splice(bmiRange.indexOf(25), 1);
+        bmiRange.splice(bmiRange.indexOf("20-25"), 1);
       } else if (name === "bmi25_30") {
-        bmiRange.splice(bmiRange.indexOf(25), 1);
-        bmiRange.splice(bmiRange.indexOf(30), 1);
+        bmiRange.splice(bmiRange.indexOf("25-30"), 1);
       } else if (name === "bmi30_35") {
-        bmiRange.splice(bmiRange.indexOf(30), 1);
-        bmiRange.splice(bmiRange.indexOf(35), 1);
+        bmiRange.splice(bmiRange.indexOf("30-35"), 1);
       } else if (name === "bmiAbove35") {
-        bmiRange.splice(bmiRange.indexOf(35), 1);
+        bmiRange.splice(bmiRange.indexOf("35-100"), 1);
       }
       this.setState({ bmiRange: bmiRange });
     }
@@ -212,15 +209,13 @@ class Body extends React.Component {
     // a1c
     if (name.substring(0, 3) === "a1c") {
       if (name === "a1cUnder4") {
-        a1cRange.splice(a1cRange.indexOf(4), 1);
+        a1cRange.splice(a1cRange.indexOf("0-4"), 1);
       } else if (name === "a1c4_7") {
-        a1cRange.splice(a1cRange.indexOf(4), 1);
-        a1cRange.splice(a1cRange.indexOf(7), 1);
+        a1cRange.splice(a1cRange.indexOf("4-7"), 1);
       } else if (name === "a1c7_10") {
-        a1cRange.splice(a1cRange.indexOf(7), 1);
-        a1cRange.splice(a1cRange.indexOf(10), 1);
+        a1cRange.splice(a1cRange.indexOf("7-10"), 1);
       } else if (name === "a1cAbove10") {
-        a1cRange.splice(a1cRange.indexOf(10), 1);
+        a1cRange.splice(a1cRange.indexOf("10-15"), 1);
       }
       this.setState({ a1cRange: a1cRange });
     }
@@ -228,15 +223,13 @@ class Body extends React.Component {
     // dbp
     if (name.substring(0, 3) === "dbp") {
       if (name === "dbpUnder80") {
-        dbpRange.splice(dbpRange.indexOf(80), 1);
+        dbpRange.splice(dbpRange.indexOf("0-80"), 1);
       } else if (name === "dbp80_100") {
-        dbpRange.splice(dbpRange.indexOf(80), 1);
-        dbpRange.splice(dbpRange.indexOf(100), 1);
+        dbpRange.splice(dbpRange.indexOf("80-100"), 1);
       } else if (name === "dbp100_120") {
-        dbpRange.splice(dbpRange.indexOf(100), 1);
-        dbpRange.splice(dbpRange.indexOf(120), 1);
+        dbpRange.splice(dbpRange.indexOf("100-120"), 1);
       } else if (name === "dbpAbove120") {
-        dbpRange.splice(dbpRange.indexOf(120), 1);
+        dbpRange.splice(dbpRange.indexOf("120-200"), 1);
       }
       this.setState({ dbpRange: dbpRange });
     }
@@ -253,21 +246,17 @@ class Body extends React.Component {
     // age
     if (name.substring(0, 3) === "age") {
       if (name === "ageUnder55") {
-        ageRange.splice(ageRange.indexOf(55), 1);
+        ageRange.splice(ageRange.indexOf("20-55"), 1);
       } else if (name === "age55_60") {
-        ageRange.splice(ageRange.indexOf(55), 1);
-        ageRange.splice(ageRange.indexOf(60), 1);
+        ageRange.splice(ageRange.indexOf("55-60"), 1);
       } else if (name === "age60_65") {
-        ageRange.splice(ageRange.indexOf(60), 1);
-        ageRange.splice(ageRange.indexOf(65), 1);
+        ageRange.splice(ageRange.indexOf("60-65"), 1);
       } else if (name === "age65_70") {
-        ageRange.splice(ageRange.indexOf(65), 1);
-        ageRange.splice(ageRange.indexOf(70), 1);
+        ageRange.splice(ageRange.indexOf("65-70"), 1);
       } else if (name === "age70_75") {
-        ageRange.splice(ageRange.indexOf(70), 1);
-        ageRange.splice(ageRange.indexOf(75), 1);
+        ageRange.splice(ageRange.indexOf("70-75"), 1);
       } else if (name === "ageAbove75") {
-        ageRange.splice(ageRange.indexOf(75), 1);
+        ageRange.splice(ageRange.indexOf("75-100"), 1);
       }
       this.setState({ ageRange: ageRange });
     }
@@ -283,6 +272,7 @@ class Body extends React.Component {
   };
 
   generateMinMax = arr => {
+    // array of arrays with each index being an array with the range
     let minMaxArray = [];
     if (arr.length === 1) {
       if (arr[0] === 20) {
@@ -361,8 +351,13 @@ class Body extends React.Component {
     //   `${this.state.currentPatient}, ${this.state.currentBMI}, ${this.state.currentA1C}, ${this.state.currentDBP}, ${this.state.currentGender}, ${this.state.currentAge}`
     // );
     // console.log(this.state.view);
-    console.log(this.state.data);
-    console.log(this.state.graphBMI, this.state.graphA1C, this.state.graphDBP);
+    console.log(this.state.bmiRange);
+    console.log(this.state.a1cRange);
+    console.log(this.state.dbpRange);
+    console.log(this.state.genderOptions);
+    console.log(this.state.ageRange);
+    // console.log(this.state.data);
+    // console.log(this.state.graphBMI, this.state.graphA1C, this.state.graphDBP);
     return (
       <div className="body-container">
         <div className="filter-and-search-btn">
